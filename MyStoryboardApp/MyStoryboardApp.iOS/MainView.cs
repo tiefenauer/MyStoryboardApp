@@ -27,7 +27,7 @@ namespace MyStoryboardApp.iOS
 	    public override void ViewDidLoad()
 	    {
 	        base.ViewDidLoad();
-	        this.CreateBinding(NavigationMvXButton).To<MainViewModel>(vm => vm.ShowOtherView);
+	        this.CreateBinding(NavigationMvXButton).To<MainViewModel>(vm => vm.ShowOtherView).Apply();
 	    }
 
 

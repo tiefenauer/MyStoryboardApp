@@ -17,7 +17,7 @@ namespace MyStoryboardApp.ViewModels
             get
             {
                 if (_showOtherView == null)
-                    _showOtherView = new MvxCommand(() => ShowViewModel<OtherViewModel>());
+                    _showOtherView = new MvxCommand(() =>ShowViewModel<OtherViewModel>());
                 return _showOtherView;
             }            
         }
