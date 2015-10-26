@@ -1,4 +1,8 @@
-﻿using Foundation;
+﻿using Cirrious.CrossCore;
+using Cirrious.MvvmCross.Touch.Platform;
+using Cirrious.MvvmCross.Touch.Views.Presenters;
+using Cirrious.MvvmCross.ViewModels;
+using Foundation;
 using UIKit;
 
 namespace MyStoryboardApp.iOS
@@ -6,7 +10,7 @@ namespace MyStoryboardApp.iOS
 	// The UIApplicationDelegate for the application. This class is responsible for launching the
 	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
 	[Register ("AppDelegate")]
-	public class AppDelegate : UIApplicationDelegate
+	public class AppDelegate : MvxApplicationDelegate
 	{
 		// class-level declarations
 
@@ -15,12 +19,16 @@ namespace MyStoryboardApp.iOS
 			set;
 		}
 
-		public override bool FinishedLaunching (UIApplication application, NSDictionary launchOptions)
-		{
-			// Override point for customization after application launch.
-			// If not required for your application you can safely delete this method
-			return true;
-		}
+        public override void FinishedLaunching(UIApplication application)
+        {
+            var presenter = new MvxTouchViewPresenter(this, Window);
+
+            var setup = new Setup(this, presenter);
+            setup.Initialize();
+
+            var startup = Mvx.Resolve<IMvxAppStart>();
+            startup.Start();
+        }
 
 		public override void OnResignActivation (UIApplication application)
 		{
