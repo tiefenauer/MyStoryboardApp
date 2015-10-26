@@ -34,6 +34,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\OtherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
